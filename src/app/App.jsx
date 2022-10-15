@@ -1,6 +1,7 @@
+import Auth from "../pages/auth/Auth";
 
 const App = () => {
-  return <div> Hello wold!</div>;
+  return <Auth />;
 };
 
 export default App;
