@@ -41,20 +41,24 @@ const Header = () => {
   );
 };
 
-const FormContainer = () => {
+const FormContainer = (props) => {
   return (
     <div className="flex flex-col items-center justify-center bg-white border p-12">
       <Header />
       <Button text="Log in with facebook" />
       <Separator />
       <div className="flex flex-col">
-        <Input placeHolder="Mobile Number or Email" type="email" />
-        <Input placeHolder="Full Name" type="text" />
+        {props.isSignUp ? (
+          <>
+            <Input placeHolder="Mobile Number or Email" type="email" />
+            <Input placeHolder="Full Name" type="text" />
+          </>
+        ) : null}
         <Input placeHolder="Username" type="text" />
         <Input placeHolder="Password" type="password" />
       </div>
       <Info />
-      <Button text="Sign up" />
+      <Button text={props.isSignUp ? "Sign up" : "Log in"} />
     </div>
   );
 };
