@@ -1,5 +1,6 @@
 import Navbar from "../../components/Navbar/Navbar";
 import Post from "../../components/Post/Post";
+import UserItem from "../../components/UserItem/UserItem";
 import StoryContainer from "./StoryContainer";
 
 const Home = () => {
@@ -10,9 +11,12 @@ const Home = () => {
         <div>
           <StoryContainer />
           <Post />
-          <Post />
         </div>
-        <div>// info</div>
+        <div>
+          <div>
+            <UserItem />
+          </div>
+        </div>
       </div>
     </dvi>
   );

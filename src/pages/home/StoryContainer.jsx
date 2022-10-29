@@ -33,7 +33,7 @@ const stories = [
 
 const SingleStory = (props) => {
   return (
-    <div className="h-16 w-16 mx-2 ">
+    <div className="h-16 w-16 mx-2 mb-4">
       <img
         className="rounded-full h-full w-full cover border border-2 border-red-500 p-1"
         src={props.imgSrc}
@@ -45,7 +45,7 @@ const SingleStory = (props) => {
 
 const StoryContainer = () => {
   return (
-    <div className="flex p-4 border-2 mt-6a">
+    <div className="flex p-4 border-2 mt-6 rounded">
       {stories.map((e) => {
         return <SingleStory name={e.name} imgSrc={e.imgSrc} />;
       })}

@@ -1,5 +1,3 @@
-import { useCallback } from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 
 const DEFAULT_IMG =
@@ -29,9 +27,7 @@ const SocialInfo = (props) => {
   const [like, setLike] = useState(false);
   const [currentLikes, setCurrentLikes] = useState(numOfLikes);
 
-  console.log("RENDER ---------");
-
-  const memozedCb = () => {
+  const handleLikes = () => {
     setLike(!like);
     if (!like) {
       setCurrentLikes(currentLikes + 1);
@@ -40,19 +36,11 @@ const SocialInfo = (props) => {
     }
   };
 
-  // useEffect(() => {
-  //   if (like === true) {
-  //     setCurrentLikes(currentLikes + 1);
-  //   } else {
-  //     setCurrentLikes(currentLikes - 1);
-  //   }
-  // }, [currentLikes]);
-
   return (
     <div>
       <div className="flex py-4">
         <div className="mx-2 cursor-pointer">
-          <span onClick={memozedCb}>
+          <span onClick={handleLikes}>
             {!like ? (
               <svg
                 aria-label="Like"
@@ -107,13 +95,19 @@ const SocialInfo = (props) => {
     </div>
   );
 };
-const CommentSection = () => {
-  return <div></div>;
+const PostInfo = (props) => {
+  return (
+    <div>
+      <p className="text-md font-bold mx-4 text-uppercase">
+        {props.userName} <span className="font-normal">{props.postInfo}</span>
+      </p>
+    </div>
+  );
 };
 
 const Post = () => {
   return (
-    <div className="border border-black">
+    <div className="border my-4 p-4 rounded">
       <ProfileInfo
         accountName="test account 1"
         picProfile="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
@@ -124,7 +118,7 @@ const Post = () => {
         }
       />
       <SocialInfo numOfLikes={20} />
-      <CommentSection />
+      <PostInfo userName={"Somebody"} postInfo="This is my daily post" />
     </div>
   );
 };
