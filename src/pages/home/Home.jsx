@@ -1,4 +1,5 @@
 import Navbar from "../../components/Navbar/Navbar";
+import Post from "../../components/Post/Post";
 import StoryContainer from "./StoryContainer";
 
 const Home = () => {
@@ -8,10 +9,10 @@ const Home = () => {
       <div className="flex px-24">
         <div>
           <StoryContainer />
+          <Post />
+          <Post />
         </div>
-        <div>
-          // info
-        </div>
+        <div>// info</div>
       </div>
     </dvi>
   );
