@@ -1,16 +1,21 @@
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 import Post from "../../components/Post/Post";
+import CreatePost from "../../components/CreatePost/CreatePost";
 import UserItem from "../../components/UserItem/UserItem";
 import { SUGGESTION_USERS } from "../../utils/fake-date";
 import StoryContainer from "./StoryContainer";
+import PostModal from "../../components/PostModal/PostModal";
+import { useState } from "react";
 
 const Home = () => {
+  const [isPostHidden, setIspostHidden] = useState(false);
+  const togglePost = () => setIspostHidden(!isPostHidden);
   return (
     <dvi>
       <Navbar />
       <div className="flex px-24">
-        <div>
+        <div className="pl-48">
           <StoryContainer />
           <Post />
         </div>
@@ -39,6 +44,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <CreatePost togglePost={togglePost} />
+      {isPostHidden ? <PostModal togglePost={togglePost} /> : null}
     </dvi>
   );
 };
